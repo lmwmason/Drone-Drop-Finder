@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\DroneCrashSimulator.Application\DroneCrashSimulator.Application.csproj" />
+    <ProjectReference Include="..\DroneCrashSimulator.Visualization\DroneCrashSimulator.Visualization.csproj" />
+    <ProjectReference Include="..\DroneCrashSimulator.Io\DroneCrashSimulator.Io.csproj" />
+    <ProjectReference Include="..\DroneCrashSimulator.Physics\DroneCrashSimulator.Physics.csproj" />
+    <ProjectReference Include="..\DroneCrashSimulator.Domain\DroneCrashSimulator.Domain.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

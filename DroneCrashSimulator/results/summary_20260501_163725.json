@@ -1,0 +1,17 @@
+{
+  "distribution": {
+    "mean_x_meters": -0.11596911668777465,
+    "mean_y_meters": -5.342292522192001,
+    "std_x_meters": 19.36524740691945,
+    "std_y_meters": 22.161000091187002,
+    "covariance": 46.320300374861816,
+    "median_distance_meters": 24.236928597105937,
+    "p95_distance_meters": 52.332232763650815,
+    "sample_count": 50
+  },
+  "confidence_region_95": {
+    "center_x_meters": -0.11596911668777465,
+    "center_y_meters": -5.342292522192001,
+    "radius_meters": 50.238885339415624
+  }
+}

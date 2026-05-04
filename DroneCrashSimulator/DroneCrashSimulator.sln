@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{20167B4A-0C46-480A-97E9-9DF92A009913}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroneCrashSimulator.Domain", "src\DroneCrashSimulator.Domain\DroneCrashSimulator.Domain.csproj", "{5F13F386-DBD6-487A-A903-5D5794151014}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroneCrashSimulator.Physics", "src\DroneCrashSimulator.Physics\DroneCrashSimulator.Physics.csproj", "{A8C33891-D3C5-4543-AC87-A5C1893B8147}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroneCrashSimulator.Application", "src\DroneCrashSimulator.Application\DroneCrashSimulator.Application.csproj", "{2AA2523A-AC28-47D1-A4FD-8F28BB2305E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroneCrashSimulator.Visualization", "src\DroneCrashSimulator.Visualization\DroneCrashSimulator.Visualization.csproj", "{2671BC73-CAD0-44EA-B408-2A48D2B6DBB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroneCrashSimulator.Io", "src\DroneCrashSimulator.Io\DroneCrashSimulator.Io.csproj", "{B3E70F44-344D-4C6D-96E5-EC08DE6CD6AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroneCrashSimulator.App", "src\DroneCrashSimulator.App\DroneCrashSimulator.App.csproj", "{526C27C6-9091-46D5-97EB-061E58DB40C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{5F0C2699-9B14-4D64-BCA1-C92ADE726CF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroneCrashSimulator.Domain.Tests", "tests\DroneCrashSimulator.Domain.Tests\DroneCrashSimulator.Domain.Tests.csproj", "{2BB7F29E-CDFF-4A45-89AB-D79306047832}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroneCrashSimulator.Physics.Tests", "tests\DroneCrashSimulator.Physics.Tests\DroneCrashSimulator.Physics.Tests.csproj", "{0383D818-3C23-4CE0-8FC5-42C596F45B1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroneCrashSimulator.Application.Tests", "tests\DroneCrashSimulator.Application.Tests\DroneCrashSimulator.Application.Tests.csproj", "{16C39BD8-F151-4EB9-9120-E413EF42C867}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5F13F386-DBD6-487A-A903-5D5794151014}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F13F386-DBD6-487A-A903-5D5794151014}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F13F386-DBD6-487A-A903-5D5794151014}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F13F386-DBD6-487A-A903-5D5794151014}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8C33891-D3C5-4543-AC87-A5C1893B8147}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8C33891-D3C5-4543-AC87-A5C1893B8147}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8C33891-D3C5-4543-AC87-A5C1893B8147}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8C33891-D3C5-4543-AC87-A5C1893B8147}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AA2523A-AC28-47D1-A4FD-8F28BB2305E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AA2523A-AC28-47D1-A4FD-8F28BB2305E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AA2523A-AC28-47D1-A4FD-8F28BB2305E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AA2523A-AC28-47D1-A4FD-8F28BB2305E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2671BC73-CAD0-44EA-B408-2A48D2B6DBB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2671BC73-CAD0-44EA-B408-2A48D2B6DBB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2671BC73-CAD0-44EA-B408-2A48D2B6DBB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2671BC73-CAD0-44EA-B408-2A48D2B6DBB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3E70F44-344D-4C6D-96E5-EC08DE6CD6AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3E70F44-344D-4C6D-96E5-EC08DE6CD6AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3E70F44-344D-4C6D-96E5-EC08DE6CD6AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3E70F44-344D-4C6D-96E5-EC08DE6CD6AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{526C27C6-9091-46D5-97EB-061E58DB40C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{526C27C6-9091-46D5-97EB-061E58DB40C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{526C27C6-9091-46D5-97EB-061E58DB40C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{526C27C6-9091-46D5-97EB-061E58DB40C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BB7F29E-CDFF-4A45-89AB-D79306047832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BB7F29E-CDFF-4A45-89AB-D79306047832}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BB7F29E-CDFF-4A45-89AB-D79306047832}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BB7F29E-CDFF-4A45-89AB-D79306047832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0383D818-3C23-4CE0-8FC5-42C596F45B1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0383D818-3C23-4CE0-8FC5-42C596F45B1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0383D818-3C23-4CE0-8FC5-42C596F45B1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0383D818-3C23-4CE0-8FC5-42C596F45B1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16C39BD8-F151-4EB9-9120-E413EF42C867}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16C39BD8-F151-4EB9-9120-E413EF42C867}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16C39BD8-F151-4EB9-9120-E413EF42C867}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16C39BD8-F151-4EB9-9120-E413EF42C867}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5F13F386-DBD6-487A-A903-5D5794151014} = {20167B4A-0C46-480A-97E9-9DF92A009913}
+		{A8C33891-D3C5-4543-AC87-A5C1893B8147} = {20167B4A-0C46-480A-97E9-9DF92A009913}
+		{2AA2523A-AC28-47D1-A4FD-8F28BB2305E3} = {20167B4A-0C46-480A-97E9-9DF92A009913}
+		{2671BC73-CAD0-44EA-B408-2A48D2B6DBB7} = {20167B4A-0C46-480A-97E9-9DF92A009913}
+		{B3E70F44-344D-4C6D-96E5-EC08DE6CD6AA} = {20167B4A-0C46-480A-97E9-9DF92A009913}
+		{526C27C6-9091-46D5-97EB-061E58DB40C0} = {20167B4A-0C46-480A-97E9-9DF92A009913}
+		{2BB7F29E-CDFF-4A45-89AB-D79306047832} = {5F0C2699-9B14-4D64-BCA1-C92ADE726CF7}
+		{0383D818-3C23-4CE0-8FC5-42C596F45B1D} = {5F0C2699-9B14-4D64-BCA1-C92ADE726CF7}
+		{16C39BD8-F151-4EB9-9120-E413EF42C867} = {5F0C2699-9B14-4D64-BCA1-C92ADE726CF7}
+	EndGlobalSection
+EndGlobal
