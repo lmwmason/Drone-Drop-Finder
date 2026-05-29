@@ -1,0 +1,2 @@
+scenario_name,drone_name,failure_mode,trial_count
+Wind_0mps_Alt_100m,Standard Quadcopter,Total Thrust Loss,500
