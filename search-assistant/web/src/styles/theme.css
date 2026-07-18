@@ -1,0 +1,482 @@
+/* Deliberately single-theme: aviation/marine instrument panels stay dark
+   year-round for glare control and night-vision preservation in the field. */
+:root {
+  --ground: #16140f;
+  --surface: #201c15;
+  --surface-2: #2a251b;
+  --line: #3a3327;
+  --text: #f2ede0;
+  --text-dim: #a89b83;
+  --text-faint: #8f8471;
+  --accent: #ff7a1f;
+  --accent-dim: #7a4a24;
+  --covered: #3c9a63;
+  --heat-lo: #123b3a;
+  --heat-hi: #7fe0d6;
+  --warn: #d94b3a;
+  --mono: ui-monospace, "SF Mono", "Cascadia Mono", "JetBrains Mono", Consolas, monospace;
+  --sans: -apple-system, "Segoe UI", "Noto Sans KR", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 28px 28px;
+  color: var(--text);
+  font-family: var(--sans);
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 18px 18px 40px;
+}
+
+header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 4px 18px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.brand .mark {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 18px;
+}
+
+h1 {
+  font-size: 15px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.combo-readout {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-dim);
+  letter-spacing: 0.02em;
+}
+
+.combo-readout b { color: var(--text); font-weight: 600; }
+
+main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  main { grid-template-columns: 1fr; }
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.map-panel {
+  padding: 14px;
+}
+
+.map-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.map-label {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  font-weight: 700;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--text-dim);
+}
+
+.legend .swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  margin-right: 5px;
+  vertical-align: -1px;
+}
+
+.sw-heat { background: linear-gradient(90deg, var(--heat-lo), var(--heat-hi)); }
+.sw-next { background: var(--accent); }
+.sw-covered { background: var(--covered); }
+.sw-you { background: #4a9fd8; }
+
+#map-wrap {
+  width: 100%;
+  overflow: auto;
+  border-radius: 4px;
+  background: #0f0d09;
+  border: 1px solid var(--line);
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+}
+
+.leaflet-map {
+  width: 100%;
+  height: 480px;
+  border-radius: 4px;
+  background: #0f0d09;
+}
+
+.heading-warning {
+  background: var(--accent-dim);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 11.5px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.combo-warning {
+  background: var(--warn);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 11.5px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.stack { display: flex; flex-direction: column; gap: 18px; }
+
+.instruments {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.gauge {
+  background: var(--surface);
+  padding: 12px 14px;
+}
+
+.gauge .k {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  font-weight: 700;
+}
+
+.gauge .v {
+  font-family: var(--mono);
+  font-size: 24px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  margin-top: 3px;
+  color: var(--text);
+}
+
+.gauge .v .unit {
+  font-size: 13px;
+  color: var(--text-dim);
+  font-weight: 400;
+  margin-left: 2px;
+}
+
+.guidance {
+  padding: 18px;
+}
+
+.guidance .k {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.compass-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.compass-dial-wrap {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  flex: none;
+}
+
+.compass-dial-wrap svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#compass-rotor {
+  transition: transform 160ms ease-out;
+}
+
+.compass-forward {
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 8px solid var(--text-dim);
+}
+
+.compass-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 140px;
+}
+
+.compass-turn {
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.compass-status {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--text-faint);
+  letter-spacing: 0.03em;
+}
+
+.compass-status.live { color: var(--covered); }
+
+#btn-compass {
+  width: auto;
+  margin-top: 2px;
+  padding: 7px 12px;
+  font-size: 11px;
+}
+
+#btn-compass:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.guidance-text {
+  font-size: 21px;
+  line-height: 1.4;
+  font-weight: 600;
+  text-wrap: balance;
+  color: var(--text);
+}
+
+.guidance-text .dir {
+  color: var(--accent);
+}
+
+.guidance-sub {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--text-dim);
+  margin-top: 10px;
+  letter-spacing: 0.02em;
+}
+
+.progress-row {
+  margin-top: 16px;
+}
+
+.progress-track {
+  height: 6px;
+  background: var(--surface-2);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--covered);
+  width: 0%;
+  transition: width 240ms ease;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--text-faint);
+  margin-top: 6px;
+}
+
+button.advance {
+  width: 100%;
+  margin-top: 16px;
+  padding: 15px;
+  background: var(--accent);
+  color: #241304;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: filter 120ms ease, transform 80ms ease;
+}
+
+button.advance:hover { filter: brightness(1.08); }
+button.advance:active { transform: scale(0.99); }
+button.advance:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
+
+button.advance:disabled {
+  background: var(--surface-2);
+  color: var(--text-faint);
+  cursor: default;
+}
+
+button.reset {
+  width: 100%;
+  margin-top: 8px;
+  padding: 9px;
+  background: transparent;
+  color: var(--text-dim);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+button.reset:hover { color: var(--text); border-color: var(--text-dim); }
+button.reset:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
+
+.map-head button.reset {
+  width: auto;
+  margin-top: 0;
+  padding: 5px 10px;
+  font-size: 10.5px;
+}
+
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--covered);
+  letter-spacing: 0.04em;
+}
+
+.status-chip .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--covered);
+}
+
+.setup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 18px;
+}
+
+.setup-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+.setup-form input {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--text);
+  padding: 8px 10px;
+  font-family: var(--mono);
+  font-size: 13px;
+}
+
+.setup-form .error {
+  color: var(--warn);
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+footer {
+  margin-top: 22px;
+  font-size: 11px;
+  color: var(--text-faint);
+  font-family: var(--mono);
+  line-height: 1.6;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+
+@media (max-width: 420px) {
+  .app { padding: 12px 10px 28px; }
+  .map-panel { padding: 10px; }
+  .guidance { padding: 14px; }
+  .instruments { grid-template-columns: 1fr 1fr; }
+  .gauge { padding: 10px 12px; }
+  .gauge .v { font-size: 20px; }
+  .compass-dial-wrap { width: 96px; height: 96px; }
+  .guidance-text { font-size: 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
